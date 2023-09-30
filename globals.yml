@@ -454,6 +454,7 @@ external_ceph_cephx_enabled: "yes"
 ceph_glance_user: "glance"
 ceph_glance_keyring: "client.{{ ceph_glance_user }}.keyring"
 ceph_glance_pool_name: "images"
+
 # Cinder
 ceph_cinder_user: "cinder"
 ceph_cinder_keyring: "client.{{ ceph_cinder_user }}.keyring"
@@ -463,9 +464,9 @@ ceph_cinder_backup_keyring: "client.{{ ceph_cinder_backup_user }}.keyring"
 ceph_cinder_backup_pool_name: "backups"
 
 # Nova
-ceph_nova_keyring: "{{ ceph_cinder_keyring }}"
 ceph_nova_user: "nova"
 ceph_nova_pool_name: "vms"
+ceph_nova_keyring: "client.{{ ceph_nova_user }}.keyring"
 
 # Gnocchi
 #ceph_gnocchi_user: "gnocchi"
@@ -500,7 +501,7 @@ glance_backend_ceph: "yes"
 #glance_backend_file: "yes"
 #glance_backend_swift: "no"
 #glance_backend_vmware: "no"
-#enable_glance_image_cache: "no"
+enable_glance_image_cache: "yes"
 #glance_enable_property_protection: "no"
 #glance_enable_interoperable_image_import: "no"
 # Configure glance upgrade option.
@@ -598,7 +599,7 @@ nova_console: "novnc"
 #neutron_ovn_distributed_fip: "no"
 
 # Enable DHCP agent(s) to use with OVN
-#neutron_ovn_dhcp_agent: "no"
+neutron_ovn_dhcp_agent: "yes"
 
 #############################
 # Horizon - Dashboard Options
